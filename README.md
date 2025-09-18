@@ -230,3 +230,5 @@ Final score = ruleScore + aiScore (0–100)
 
 Deployed backend on Render:
 https://lead-scoring-xjbj.onrender.com
+
+## Loome video- https://www.loom.com/share/ed758592e286427e9766f19bea328b6c
