@@ -1,6 +1,8 @@
 //Imported Required Packages
 const express = require('express');
 const dotenv = require('dotenv');
+//Called environment variable from .env file
+dotenv.config();
 const connectDB = require('./config/db');
 
 //Imported Route Handlers
@@ -8,8 +10,6 @@ const offerRoutes = require('./routes/offerRoutes');
 const leadRoutes = require('./routes/leadRoutes');
 const scoreRoutes = require('./routes/scoreRoutes');
 
-//Called environment variable from .env file
-dotenv.config();
 
 //Called the function for the database connection
 connectDB();

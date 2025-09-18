@@ -1,8 +1,8 @@
 const express = require("express");
 const Offer = require("../models/Offer.js");
 const Lead = require("../models/Lead.js");
-const { scoreRules } = require("../services/ruleScoring.js");
-const { scoreAI } = require("../services/aiScoring.js");
+const  scoreRules  = require("../services/ruleScoring.js");
+const  scoreAI  = require("../services/aiScoring.js");
 
 const router = express.Router();
 

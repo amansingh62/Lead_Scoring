@@ -1,6 +1,6 @@
 // Function to calculate rule-based score for a given lead and offer
 // Returns a number between 0 and 50
-export const scoreRules = (lead, offer) => {
+ const scoreRules = (lead, offer) => {
   let score = 0;
 
   // ----------------------------
@@ -37,3 +37,5 @@ export const scoreRules = (lead, offer) => {
   // Final rule score (0 - 50)
   return score;
 };
+
+module.exports = scoreRules;

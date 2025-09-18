@@ -21,4 +21,4 @@ const parseCSV = (filePath) => {
 };
 
 // Exported the csv file to be reused
-export default parseCSV;
+module.exports = parseCSV;

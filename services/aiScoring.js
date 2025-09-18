@@ -7,10 +7,10 @@ const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 // Function to get AI-based scoring for a lead against an offer
 // Uses GPT model to classify intent (High / Medium / Low) with reasoning
 // Returns { aiScore, intent, reasoning }
-export const scoreAI = async (lead, offer) => {
+const scoreAI = async (lead, offer) => {
   try {
 
-      // ------------------------------------
+    // ------------------------------------
     // 1. Build the prompt for the AI model
     // ------------------------------------
     // The AI is asked to analyze the offer + prospect info
@@ -34,7 +34,7 @@ Prospect:
 Return JSON only: {"intent":"High/Medium/Low","reason":"short explanation"}
     `;
 
-     // ------------------------------------
+    // ------------------------------------
     // 2. Call the OpenAI Chat API
     // ------------------------------------
     const response = await openai.chat.completions.create({
@@ -47,10 +47,10 @@ Return JSON only: {"intent":"High/Medium/Low","reason":"short explanation"}
     // ------------------------------------
     let aiResult;
     try {
-    // Try parsing the model output (expected to be JSON)
+      // Try parsing the model output (expected to be JSON)
       aiResult = JSON.parse(response.choices[0].message.content);
     } catch {
-    // If parsing fails, fallback to "Medium" intent
+      // If parsing fails, fallback to "Medium" intent
       aiResult = { intent: "Medium", reason: "Defaulted due to parse error" };
     }
 
@@ -71,3 +71,6 @@ Return JSON only: {"intent":"High/Medium/Low","reason":"short explanation"}
     return { aiScore: 10, intent: "Low", reasoning: "AI error fallback" };
   }
 };
+
+
+module.exports = scoreAI;
